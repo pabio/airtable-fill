@@ -43,6 +43,7 @@
     "update-template": "^1.1.2"
   },
   "dependencies": {
+    "@anandchowdhary/cosmic": "^1.0.1",
     "airtable": "^0.10.0"
   }
 }
