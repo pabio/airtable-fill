@@ -1,0 +1,10 @@
+{
+  "fields": [
+    "Name",
+    "Full price",
+    "Retail price",
+    "Discounted price",
+    "Delivery time",
+    "Description"
+  ]
+}

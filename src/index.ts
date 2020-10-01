@@ -1,5 +1,6 @@
 import Airtable from "airtable";
-import { config } from "@anandchowdhary/cosmic";
+import { cosmicSync, config } from "@anandchowdhary/cosmic";
+cosmicSync("airtablefill");
 
 /** Get all rows for a table */
 export const getAllAirtableRows = <T = any>(): Promise<Array<Airtable.Record<T>>> =>
@@ -23,3 +24,9 @@ export const getEmptyAirtableRows = async <T>() =>
   (await getAllAirtableRows<T>()).filter((row) =>
     Object.values(row.fields).find((field: any) => !field)
   );
+
+export const airtableFill = async () => {
+  const rows = await getEmptyAirtableRows<{ name: string }>();
+  console.log("Rows are empty", rows);
+};
+airtableFill();
