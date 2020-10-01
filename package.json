@@ -33,6 +33,7 @@
     "@semantic-release/git": "^9.0.0",
     "@semantic-release/github": "^7.1.1",
     "@semantic-release/npm": "^7.0.6",
+    "@types/airtable": "^0.8.1",
     "@types/jest": "^26.0.14",
     "jest": "^26.4.2",
     "semantic-release": "^17.1.2",
@@ -40,5 +41,8 @@
     "ts-jest": "^26.4.1",
     "typescript": "^4.0.3",
     "update-template": "^1.1.2"
+  },
+  "dependencies": {
+    "airtable": "^0.10.0"
   }
 }
