@@ -18,7 +18,7 @@ export const fill = async <T>(row: Airtable.Record<T>) => {
   fields.Name = data.title;
   fields["Full price"] = Math.round(data.fullPrice);
   fields["Retail price"] = Math.round(data.salePrice ?? data.fullPrice);
-  fields["Discounted price"] = Math.round(data.discountedPrice);
+  fields["Discounted price"] = Math.round(data.discountedPrice ?? data.salePrice ?? data.fullPrice);
   fields["Delivery time"] = data.deliveryTime;
   fields.Description = data.description;
   fields.Specifications = Object.keys(data.specifications)
@@ -101,7 +101,6 @@ export const getDataFromPfister = async (url: string) => {
       )
     );
   const [fullPrice, salePrice] = prices.sort((a, b) => b - a);
-  const discountedPrice = salePrice;
   let description = $("h2")
     .filter((_, elt) => $(elt).text().trim() === "Details")
     .next("div")
@@ -141,7 +140,6 @@ export const getDataFromPfister = async (url: string) => {
     description,
     specifications,
     deliveryTime,
-    discountedPrice,
     images: images.filter((i) => i).map((i) => (i.startsWith("http") ? i : `https:${i}`)),
   };
 };
