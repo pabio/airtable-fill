@@ -42,7 +42,9 @@ export const airtableFill = async () => {
   console.log("Got empty rows", rows.length);
   for await (const row of rows) {
     const newValues = await fill<Row>(row);
-    await base(config<string>("airtableTable")).update(row.id, newValues);
+    await base(config<string>("airtableTable")).update([
+      { id: row.id, fields: { ...row.fields, ...newValues } },
+    ]);
     console.log("Updated row", row.id);
   }
 };

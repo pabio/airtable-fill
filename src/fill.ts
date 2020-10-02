@@ -6,14 +6,15 @@ const titleCase = (str: string) =>
   str.replace(/\w\S*/g, (txt) => txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase());
 
 export const fill = async <T>(row: Airtable.Record<T>) => {
-  const fields = (row.fields as any) as { [index: string]: string };
+  const fields = (row.fields as any) as { [index: string]: string | number };
   const url = fields.Link;
-  if (!url) return fields;
+  if (typeof url !== "string") return fields;
+  if (!url.includes("pfister.ch")) return fields;
   const data = await getDataFromPfister(url);
   fields.Name = data.title;
-  fields["Full price"] = data.fullPrice.toString();
-  fields["Retail price"] = (data.salePrice ?? data.fullPrice).toString();
-  fields["Discounted price"] = (data.salePrice ?? data.fullPrice).toString();
+  fields["Full price"] = Math.round(data.fullPrice * 1.1);
+  fields["Retail price"] = Math.round(data.salePrice ?? data.fullPrice);
+  fields["Discounted price"] = Math.round(data.salePrice ?? data.fullPrice);
   fields["Delivery time"] = data.deliveryTime;
   fields.Description = data.description;
   fields.Specifications = JSON.stringify(data.specifications);
@@ -25,22 +26,24 @@ export const getDataFromPfister = async (url: string) => {
   const $ = load(data);
   const title = titleCase($("h1").text());
   const prices: number[] = [];
-  $("h1 + div")
+  $("h1 + div, h2 + div")
     .find("span")
     .each((_, price) =>
       prices.push(
         parseInt(
           $(price)
             .text()
+            .replace("'", "")
             .replace(/[^0-9]/g, "")
         )
       )
     );
   const [fullPrice, salePrice] = prices.sort((a, b) => b - a);
-  const description = $("h2")
+  let description = $("h2")
     .filter((_, elt) => $(elt).text().trim() === "Details")
-    .next()
+    .next("div")
     .text();
+  if (description.length < 100) description = "";
   const specifications: { [index: string]: string } = {};
   const table = $("h2")
     .filter((_, elt) => $(elt).text().trim() === "Details")
