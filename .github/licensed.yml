@@ -10,3 +10,11 @@ allowed:
   - unlicense
 reviewed:
   npm:
+    - string_decoder
+    - readable-stream
+    - lodash.camelcase
+    - lodash
+    - json-parse-even-better-errors
+    - dom-serializer
+    - css-select
+    - color-convert
