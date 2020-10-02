@@ -18,7 +18,7 @@ export const fill = async <T>(row: Airtable.Record<T>) => {
   fields.Name = data.title;
   fields["Full price"] = Math.round(data.fullPrice * 1.1);
   fields["Retail price"] = Math.round(data.salePrice ?? data.fullPrice);
-  fields["Discounted price"] = Math.round(data.salePrice ?? data.fullPrice);
+  fields["Discounted price"] = Math.round(data.discountedPrice);
   fields["Delivery time"] = data.deliveryTime;
   fields.Description = data.description;
   fields.Specifications = Object.keys(data.specifications)
@@ -62,7 +62,7 @@ export const getDataFromLivique = async (url: string) => {
     specifications[key] = value;
   });
   const images: string[] = [];
-  $("#detail-gallery source").each((_, elt) => {
+  $("#detail-gallery source:first-child").each((_, elt) => {
     const src = $(elt).first().attr("data-srcset");
     if (src)
       images.push(
