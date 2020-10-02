@@ -4,9 +4,11 @@ import { load } from "cheerio";
 
 const titleCase = (str: string) =>
   str.replace(/\w\S*/g, (txt) => txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase());
+const unique = (array: any[], propertyName: string) =>
+  array.filter((e, i) => array.findIndex((a) => a[propertyName] === e[propertyName]) === i);
 
 export const fill = async <T>(row: Airtable.Record<T>) => {
-  const fields = (row.fields as any) as { [index: string]: string | number };
+  const fields = (row.fields as any) as { [index: string]: string | number | any[] };
   const url = fields.Link;
   if (typeof url !== "string") return fields;
   let data: any = {};
@@ -20,6 +22,9 @@ export const fill = async <T>(row: Airtable.Record<T>) => {
   fields["Delivery time"] = data.deliveryTime;
   fields.Description = data.description;
   fields.Specifications = JSON.stringify(data.specifications);
+  const pastPhotos = fields.Photo;
+  const newPhotos = (data.images ?? []).map((url: string) => ({ url }));
+  fields.Photo = unique([...(pastPhotos as any[]), ...newPhotos], "url");
   return fields;
 };
 
@@ -45,7 +50,27 @@ export const getDataFromLivique = async (url: string) => {
     const value = $(elt).find(".col-sm-9").text();
     specifications[key] = value;
   });
-  return { title, salePrice, fullPrice, deliveryTime, specifications, description: title };
+  const images: string[] = [];
+  $("#detail-gallery source").each((_, elt) => {
+    const src = $(elt).attr("srcset");
+    if (src)
+      images.push(
+        src
+          .split(",")
+          .map((i) => i.trim())
+          .pop()
+          ?.split(" ")[0] ?? ""
+      );
+  });
+  return {
+    title,
+    salePrice,
+    fullPrice,
+    deliveryTime,
+    specifications,
+    description: title,
+    images: images.filter((i) => i).map((i) => (i.startsWith("http") ? i : `https:${i}`)),
+  };
 };
 
 export const getDataFromPfister = async (url: string) => {
@@ -87,5 +112,18 @@ export const getDataFromPfister = async (url: string) => {
     .replace("Wochen", "weeks")
     .replace("Woche", "week");
   if (deliveryTime.includes("Sofort lieferbar")) deliveryTime = "Immediately";
-  return { title, fullPrice, salePrice, description, specifications, deliveryTime };
+  const images: string[] = [];
+  $(".slick-dots picture img").each((_, elt) => {
+    const src = $(elt).attr("src");
+    if (src) images.push(src.replace("/pdp/", "/sm/"));
+  });
+  return {
+    title,
+    fullPrice,
+    salePrice,
+    description,
+    specifications,
+    deliveryTime,
+    images: images.filter((i) => i).map((i) => (i.startsWith("http") ? i : `https:${i}`)),
+  };
 };
