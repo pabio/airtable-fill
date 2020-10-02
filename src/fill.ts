@@ -21,10 +21,17 @@ export const fill = async <T>(row: Airtable.Record<T>) => {
   fields["Discounted price"] = Math.round(data.salePrice ?? data.fullPrice);
   fields["Delivery time"] = data.deliveryTime;
   fields.Description = data.description;
-  fields.Specifications = JSON.stringify(data.specifications);
+  fields.Specifications = Object.keys(data.specifications)
+    .map(
+      (key) =>
+        `${key.replace(/\s+/g, " ").trim()}: ${data.specifications[key]
+          .replace(/\s+/g, " ")
+          .trim()}`
+    )
+    .join("\n");
   const pastPhotos = fields.Photo;
   const newPhotos = (data.images ?? []).map((url: string) => ({ url }));
-  fields.Photo = unique([...(pastPhotos as any[]), ...newPhotos], "url");
+  fields.Photo = unique([...((pastPhotos ?? []) as any[]), ...newPhotos], "url");
   return fields;
 };
 
@@ -35,15 +42,19 @@ export const getDataFromLivique = async (url: string) => {
   const salePrice = $(".product-detail-price__cost--final__value")
     .text()
     .replace("'", "")
-    .replace(/[0-9]*\.?[0-9]*/g, "");
+    .replace("CHF", "")
+    .replace(".-", "");
   const fullPrice = $(".product-detail-price__cost--old")
     .text()
     .replace("'", "")
-    .replace(/[0-9]*\.?[0-9]*/g, "");
+    .replace("CHF", "")
+    .replace(".-", "")
+    .replace("statt ", "");
   const deliveryTime = $("[data-delivery-conditions-2-delivery] .delivery-conditions-2__value")
+    .first()
     .text()
     .replace("(", "")
-    .replace(")", "");
+    .split(")")[0];
   const specifications: { [index: string]: string } = {};
   $(".product-information-list__row").each((_, elt) => {
     const key = $(elt).find(".col-sm-3").text();
@@ -52,7 +63,7 @@ export const getDataFromLivique = async (url: string) => {
   });
   const images: string[] = [];
   $("#detail-gallery source").each((_, elt) => {
-    const src = $(elt).attr("srcset");
+    const src = $(elt).first().attr("data-srcset");
     if (src)
       images.push(
         src
@@ -62,14 +73,16 @@ export const getDataFromLivique = async (url: string) => {
           ?.split(" ")[0] ?? ""
       );
   });
+  const discountedPrice = parseInt(salePrice) * 0.7;
   return {
     title,
     salePrice,
     fullPrice,
     deliveryTime,
     specifications,
+    discountedPrice,
     description: title,
-    images: images.filter((i) => i).map((i) => (i.startsWith("http") ? i : `https:${i}`)),
+    images: images.filter((i) => i).map((i) => `https:${i}`),
   };
 };
 
@@ -86,6 +99,7 @@ export const getDataFromPfister = async (url: string) => {
       )
     );
   const [fullPrice, salePrice] = prices.sort((a, b) => b - a);
+  const discountedPrice = salePrice;
   let description = $("h2")
     .filter((_, elt) => $(elt).text().trim() === "Details")
     .next("div")
@@ -125,6 +139,7 @@ export const getDataFromPfister = async (url: string) => {
     description,
     specifications,
     deliveryTime,
+    discountedPrice,
     images: images.filter((i) => i).map((i) => (i.startsWith("http") ? i : `https:${i}`)),
   };
 };

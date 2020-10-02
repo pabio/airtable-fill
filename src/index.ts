@@ -48,4 +48,6 @@ export const airtableFill = async () => {
     console.log("Updated row", row.id);
   }
 };
-airtableFill();
+airtableFill()
+  .then(() => {})
+  .catch(console.log);
