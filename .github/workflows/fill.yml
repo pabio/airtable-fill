@@ -1,0 +1,27 @@
+name: Airtable Fill CI
+on:
+  schedule:
+    - cron: "0 0/6 * * *"
+  repository_dispatch:
+    types: [fill]
+  workflow_dispatch:
+jobs:
+  release:
+    name: Update data
+    runs-on: ubuntu-18.04
+    if: "!contains(github.event.head_commit.message, '[skip ci]')"
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2.3.3
+      - name: Setup Node.js
+        uses: actions/setup-node@v2.1.2
+        with:
+          node-version: 14
+      - name: Install dependencies
+        run: npm ci
+      - name: Run updater
+        run: npx ts-node src/index.ts
+        env:
+          AIRTABLE_API_KEY: ${{ secrets.AIRTABLE_API_KEY }}
+          AIRTABLE_BASE: ${{ secrets.AIRTABLE_BASE }}
+          AIRTABLE_TABLE: ${{ secrets.AIRTABLE_TABLE }}
