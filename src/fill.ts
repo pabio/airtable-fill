@@ -82,12 +82,7 @@ export const getDataFromPfister = async (url: string) => {
     .find("span")
     .each((_, price) =>
       prices.push(
-        parseInt(
-          $(price)
-            .text()
-            .replace("'", "")
-            .replace(/[0-9]*\.?[0-9]*/g, "")
-        )
+        parseInt($(price).text().replace("'", "").replace("CHF", "").replace(".-", "").trim())
       )
     );
   const [fullPrice, salePrice] = prices.sort((a, b) => b - a);
@@ -113,10 +108,16 @@ export const getDataFromPfister = async (url: string) => {
     .replace("Woche", "week");
   if (deliveryTime.includes("Sofort lieferbar")) deliveryTime = "Immediately";
   const images: string[] = [];
-  $(".slick-dots picture img").each((_, elt) => {
-    const src = $(elt).attr("src");
-    if (src) images.push(src.replace("/pdp/", "/sm/"));
-  });
+  try {
+    const obj = JSON.parse("[" + data.split(`"galleryImages":[`)[1].split(`}]}],`)[0] + "}]}]");
+    obj.forEach((val: any) => {
+      if (Array.isArray(val.formats)) {
+        val.formats.forEach((format: { qualifier?: string; url?: string }) => {
+          if (format.qualifier === "product_xl" && format.url) images.push(format.url);
+        });
+      }
+    });
+  } catch (error) {}
   return {
     title,
     fullPrice,
