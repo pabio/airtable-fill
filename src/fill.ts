@@ -20,7 +20,7 @@ export const fill = async <T>(row: Airtable.Record<T>) => {
   fields["Retail price"] = Math.round(data.salePrice ?? data.fullPrice);
   fields["Discounted price"] = Math.round(data.discountedPrice ?? data.salePrice ?? data.fullPrice);
   fields["Delivery time"] = data.deliveryTime;
-  fields.Description = data.description;
+  fields.Description = data.description || data.title;
   fields.Specifications = Object.keys(data.specifications)
     .map(
       (key) =>
