@@ -41,11 +41,15 @@ export const airtableFill = async () => {
   const rows = await getEmptyAirtableRows<Row>();
   console.log("Got empty rows", rows.length);
   for await (const row of rows) {
-    const newValues = await fill<Row>(row);
-    await base(config<string>("airtableTable")).update([
-      { id: row.id, fields: { ...row.fields, ...newValues } },
-    ]);
-    console.log("Updated row", row.id);
+    try {
+      const newValues = await fill<Row>(row);
+      await base(config<string>("airtableTable")).update([
+        { id: row.id, fields: { ...row.fields, ...newValues } },
+      ]);
+      console.log("Updated row", row.id);
+    } catch (error) {
+      console.log("Got an error in updating", row.id);
+    }
   }
 };
 airtableFill()
