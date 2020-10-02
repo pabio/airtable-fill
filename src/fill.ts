@@ -6,7 +6,18 @@ const titleCase = (str: string) =>
   str.replace(/\w\S*/g, (txt) => txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase());
 
 export const fill = async <T>(row: Airtable.Record<T>) => {
-  return row.fields;
+  const fields = (row.fields as any) as { [index: string]: string };
+  const url = fields.Link;
+  if (!url) return fields;
+  const data = await getDataFromPfister(url);
+  fields.Name = data.title;
+  fields["Full price"] = data.fullPrice.toString();
+  fields["Retail price"] = (data.salePrice ?? data.fullPrice).toString();
+  fields["Discounted price"] = (data.salePrice ?? data.fullPrice).toString();
+  fields["Delivery time"] = data.deliveryTime;
+  fields.Description = data.description;
+  fields.Specifications = JSON.stringify(data.specifications);
+  return fields;
 };
 
 export const getDataFromPfister = async (url: string) => {
