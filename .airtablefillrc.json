@@ -5,6 +5,7 @@
     "Retail price",
     "Discounted price",
     "Delivery time",
-    "Description"
+    "Description",
+    "Specifications"
   ]
 }
