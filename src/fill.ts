@@ -39,5 +39,10 @@ export const getDataFromPfister = async (url: string) => {
     const value = $(elt).find("td").text();
     specifications[key] = value;
   });
-  return { title, fullPrice, salePrice, description, specifications };
+  const deliveryTime = $("header + div[type=button]")
+    .text()
+    .replace("Lieferzeit: ", "")
+    .replace("Sofort lieferbar,  ", "")
+    .replace(/ +/g, " ");
+  return { title, fullPrice, salePrice, description, specifications, deliveryTime };
 };

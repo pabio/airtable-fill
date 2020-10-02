@@ -11,4 +11,5 @@ test("Get data from Pfister", async () => {
   );
   expect(typeof data.specifications).toBe("object");
   expect(Object.keys(data.specifications).length).toBeGreaterThanOrEqual(1);
+  expect(data.deliveryTime == null).toBeFalsy();
 });
