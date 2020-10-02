@@ -16,7 +16,7 @@ export const fill = async <T>(row: Airtable.Record<T>) => {
   else if (url.includes("livique.ch")) data = await getDataFromLivique(url);
   else return fields;
   fields.Name = data.title;
-  fields["Full price"] = Math.round(data.fullPrice * 1.1);
+  fields["Full price"] = Math.round(data.fullPrice);
   fields["Retail price"] = Math.round(data.salePrice ?? data.fullPrice);
   fields["Discounted price"] = Math.round(data.discountedPrice);
   fields["Delivery time"] = data.deliveryTime;
