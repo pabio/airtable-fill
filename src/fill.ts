@@ -24,7 +24,7 @@ export const fill = async <T>(row: Airtable.Record<T>) => {
   fields.Specifications = Object.keys(data.specifications)
     .map(
       (key) =>
-        `${key.replace(/\s+/g, " ").trim()}: ${data.specifications[key]
+        `- ${key.replace(/\s+/g, " ").trim()}: ${data.specifications[key]
           .replace(/\s+/g, " ")
           .trim()}`
     )
@@ -54,7 +54,9 @@ export const getDataFromLivique = async (url: string) => {
     .first()
     .text()
     .replace("(", "")
-    .split(")")[0];
+    .split(")")[0]
+    .replace("Wochen", "weeks")
+    .replace("Woche", "week");
   const specifications: { [index: string]: string } = {};
   $(".product-information-list__row").each((_, elt) => {
     const key = $(elt).find(".col-sm-3").text();
