@@ -9,8 +9,10 @@ export const fill = async <T>(row: Airtable.Record<T>) => {
   const fields = (row.fields as any) as { [index: string]: string | number };
   const url = fields.Link;
   if (typeof url !== "string") return fields;
-  if (!url.includes("pfister.ch")) return fields;
-  const data = await getDataFromPfister(url);
+  let data: any = {};
+  if (url.includes("pfister.ch")) data = await getDataFromPfister(url);
+  else if (url.includes("livique.ch")) data = await getDataFromLivique(url);
+  else return fields;
   fields.Name = data.title;
   fields["Full price"] = Math.round(data.fullPrice * 1.1);
   fields["Retail price"] = Math.round(data.salePrice ?? data.fullPrice);
@@ -19,6 +21,31 @@ export const fill = async <T>(row: Airtable.Record<T>) => {
   fields.Description = data.description;
   fields.Specifications = JSON.stringify(data.specifications);
   return fields;
+};
+
+export const getDataFromLivique = async (url: string) => {
+  const { data } = await axios.get(url);
+  const $ = load(data);
+  const title = $("h1").text();
+  const salePrice = $(".product-detail-price__cost--final__value")
+    .text()
+    .replace("'", "")
+    .replace(/[0-9]*\.?[0-9]*/g, "");
+  const fullPrice = $(".product-detail-price__cost--old")
+    .text()
+    .replace("'", "")
+    .replace(/[0-9]*\.?[0-9]*/g, "");
+  const deliveryTime = $("[data-delivery-conditions-2-delivery] .delivery-conditions-2__value")
+    .text()
+    .replace("(", "")
+    .replace(")", "");
+  const specifications: { [index: string]: string } = {};
+  $(".product-information-list__row").each((_, elt) => {
+    const key = $(elt).find(".col-sm-3").text();
+    const value = $(elt).find(".col-sm-9").text();
+    specifications[key] = value;
+  });
+  return { title, salePrice, fullPrice, deliveryTime, specifications, description: title };
 };
 
 export const getDataFromPfister = async (url: string) => {
@@ -34,7 +61,7 @@ export const getDataFromPfister = async (url: string) => {
           $(price)
             .text()
             .replace("'", "")
-            .replace(/[^0-9]/g, "")
+            .replace(/[0-9]*\.?[0-9]*/g, "")
         )
       )
     );
@@ -53,10 +80,12 @@ export const getDataFromPfister = async (url: string) => {
     const value = $(elt).find("td").text();
     specifications[key] = value;
   });
-  const deliveryTime = $("header + div[type=button]")
+  let deliveryTime = $("header + div[type=button]")
     .text()
     .replace("Lieferzeit: ", "")
-    .replace("Sofort lieferbar,  ", "")
-    .replace(/ +/g, " ");
+    .replace(/ +/g, " ")
+    .replace("Wochen", "weeks")
+    .replace("Woche", "week");
+  if (deliveryTime.includes("Sofort lieferbar")) deliveryTime = "Immediately";
   return { title, fullPrice, salePrice, description, specifications, deliveryTime };
 };
