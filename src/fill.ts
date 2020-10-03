@@ -39,17 +39,22 @@ export const getDataFromLivique = async (url: string) => {
   const { data } = await axios.get(url);
   const $ = load(data);
   const title = $("h1").text();
-  const salePrice = $(".product-detail-price__cost--final__value")
-    .text()
-    .replace("'", "")
-    .replace("CHF", "")
-    .replace(".-", "");
-  const fullPrice = $(".product-detail-price__cost--old")
-    .text()
-    .replace("'", "")
-    .replace("CHF", "")
-    .replace(".-", "")
-    .replace("statt ", "");
+  const salePrice = parseInt(
+    $(".product-detail-price__cost--final__value")
+      .text()
+      .replace("'", "")
+      .replace("CHF", "")
+      .replace(".-", "")
+  );
+  const fullPrice = parseInt(
+    $(".product-detail-price__cost--old")
+      .text()
+      .replace("'", "")
+      .replace("CHF", "")
+      .replace(".-", "")
+      .replace("statt ", "")
+      .trim()
+  );
   const deliveryTime = $("[data-delivery-conditions-2-delivery] .delivery-conditions-2__value")
     .first()
     .text()
@@ -75,7 +80,7 @@ export const getDataFromLivique = async (url: string) => {
           ?.split(" ")[0] ?? ""
       );
   });
-  const discountedPrice = parseInt(salePrice) * 0.7;
+  const discountedPrice = salePrice * 0.7;
   return {
     title,
     salePrice,
