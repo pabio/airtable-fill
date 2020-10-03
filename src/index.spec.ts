@@ -1,4 +1,4 @@
-import { getDataFromPfister } from "./fill";
+import { getDataFromLivique, getDataFromPfister } from "./fill";
 
 test("Get data from Pfister", async () => {
   const data = await getDataFromPfister(
@@ -9,6 +9,18 @@ test("Get data from Pfister", async () => {
   expect(data.description).toBe(
     "Sessel WINGED beflügelt. Die organisch geformte Sitzfläche aus erstklassigem Rattan bietet einen hohen Sitzkomfort. Auf dem schönen Geflecht lässt sich es sich ideal entspannen und neue Energie tanken – sei es im Wohnzimmer, auf der Terrasse oder im Garten. Inklusive Sitzkissen und Nierenkissen mit abnehmbarem Bezug aus Leinen. Exklusiv bei Pfister erhältlich."
   );
+  expect(typeof data.specifications).toBe("object");
+  expect(Object.keys(data.specifications).length).toBeGreaterThanOrEqual(1);
+  expect(data.deliveryTime == null).toBeFalsy();
+});
+
+test("Get data from Livique", async () => {
+  const data = await getDataFromLivique(
+    "https://www.livique.ch/de/schlafen/kommoden/nachttische/nachttisch-aura/p/6482340"
+  );
+  expect(data.title).toBe("Nachttisch Aura");
+  expect(data.fullPrice).toBe(299);
+  expect(data.description).toBe("Nachttisch Aura");
   expect(typeof data.specifications).toBe("object");
   expect(Object.keys(data.specifications).length).toBeGreaterThanOrEqual(1);
   expect(data.deliveryTime == null).toBeFalsy();
