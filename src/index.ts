@@ -16,7 +16,7 @@ export const getAllAirtableRows = <T = any>(): Promise<Array<Airtable.Record<T>>
   new Promise((resolve, reject) => {
     const allRecords: Array<any> = [];
     base(config<string>("airtableTable"))
-      .select({ maxRecords: 100 })
+      .select()
       .eachPage((records, fetchNextPage) => {
         allRecords.push(...records);
         fetchNextPage();
