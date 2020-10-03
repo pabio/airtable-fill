@@ -59,9 +59,9 @@ export const getDataFromLivique = async (url: string) => {
     .replace("Woche", "week");
   const specifications: { [index: string]: string } = {};
   $(".product-information-list__row").each((_, elt) => {
-    const key = $(elt).find(".col-sm-3").text();
-    const value = $(elt).find(".col-sm-9").text();
-    specifications[key] = value;
+    const key = $(elt).find(".col-sm-3").text().trim();
+    const value = $(elt).find(".col-sm-9").text().trim();
+    specifications[key] = value.replace(/\s+/g, " ").trim();
   });
   const images: string[] = [];
   $("#detail-gallery source:first-child").each((_, elt) => {
