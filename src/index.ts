@@ -4,7 +4,7 @@ import { fill } from "./fill";
 cosmicSync("airtablefill");
 
 interface Row {
-  name: string;
+  Name: string;
 }
 
 const base = new Airtable({
@@ -41,7 +41,7 @@ export const airtableFill = async () => {
       await base(config<string>("airtableTable")).update([
         { id: row.id, fields: { ...row.fields, ...newValues } },
       ]);
-      console.log("Updated row", row.id);
+      console.log("Updated row", row.fields.Name);
     } catch (error) {
       console.log("Got an error in updating", row.id);
     }
