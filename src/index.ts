@@ -27,14 +27,9 @@ export const getAllAirtableRows = <T = any>(): Promise<Array<Airtable.Record<T>>
 
 /** Get a list of all rows that have an empty column */
 export const getEmptyAirtableRows = async <T>() =>
-  (await getAllAirtableRows<T>()).filter((row) => {
-    const fields = config<string[]>("fields");
-    let hasAll = true;
-    fields.forEach((field) => {
-      hasAll = hasAll && !!(row.fields as { [index: string]: any })[field];
-    });
-    return !hasAll;
-  });
+  (await getAllAirtableRows<T>()).filter(
+    (row) => !(row as any).fields.Description || !("Description" in (row as any).fields)
+  );
 
 /** Fill empty Airtable rows */
 export const airtableFill = async () => {
