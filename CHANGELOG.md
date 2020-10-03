@@ -1,3 +1,12 @@
+# [v1.2.1](https://github.com/koj-co/airtable-fill/compare/v1.2.0...v1.2.1) (2020-10-03)
+
+## 🐛 Bug fixes
+
+- [`ce17919`](https://github.com/koj-co/airtable-fill/commit/ce17919)  Trim and clear specs in Livique
+- [`5e11901`](https://github.com/koj-co/airtable-fill/commit/5e11901)  Convert prices to int
+- [`c5667af`](https://github.com/koj-co/airtable-fill/commit/c5667af)  Check if description key is not in value
+- [`f5f8c73`](https://github.com/koj-co/airtable-fill/commit/f5f8c73)  Select all Airtable records
+
 # [v1.2.0](https://github.com/koj-co/airtable-fill/compare/v1.1.0...v1.2.0) (2020-10-02)
 
 ## ✨ New features
