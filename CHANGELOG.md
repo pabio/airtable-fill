@@ -1,3 +1,10 @@
+# [v1.3.0](https://github.com/koj-co/airtable-fill/compare/v1.2.1...v1.3.0) (2020-10-07)
+
+## ✨ New features
+
+- [`16b28ca`](https://github.com/koj-co/airtable-fill/commit/16b28ca)  Add data from Maisons du Monde
+- [`bf3b26f`](https://github.com/koj-co/airtable-fill/commit/bf3b26f)  Support multiple Airtable tables
+
 # [v1.2.1](https://github.com/koj-co/airtable-fill/compare/v1.2.0...v1.2.1) (2020-10-03)
 
 ## 🐛 Bug fixes
