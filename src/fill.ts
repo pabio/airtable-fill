@@ -9,7 +9,7 @@ const unique = (array: any[], propertyName: string) =>
 
 export const fill = async <T>(row: Airtable.Record<T>) => {
   const fields: { [index: string]: string | number | any[] } = {};
-  const url = (row as any).Link;
+  const url = (row as any).fields.Link;
   if (typeof url !== "string") return fields;
   let data: any = {};
   if (url.includes("pfister.ch")) data = await getDataFromPfister(url);
