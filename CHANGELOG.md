@@ -1,3 +1,9 @@
+# [v1.3.3](https://github.com/koj-co/airtable-fill/compare/v1.3.2...v1.3.3) (2020-10-07)
+
+## 🐛 Bug fixes
+
+- [`581eafa`](https://github.com/koj-co/airtable-fill/commit/581eafa)  Use row.fields.Link for URL
+
 # [v1.3.2](https://github.com/koj-co/airtable-fill/compare/v1.3.1...v1.3.2) (2020-10-07)
 
 ## 🐛 Bug fixes
