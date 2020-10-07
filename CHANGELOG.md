@@ -1,3 +1,9 @@
+# [v1.3.1](https://github.com/koj-co/airtable-fill/compare/v1.3.0...v1.3.1) (2020-10-07)
+
+## 🐛 Bug fixes
+
+- [`042e8d5`](https://github.com/koj-co/airtable-fill/commit/042e8d5)  Only send new values to update
+
 # [v1.3.0](https://github.com/koj-co/airtable-fill/compare/v1.2.1...v1.3.0) (2020-10-07)
 
 ## ✨ New features
