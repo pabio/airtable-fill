@@ -41,7 +41,7 @@ export const airtableFill = async () => {
     for await (const row of rows) {
       try {
         const newValues = await fill<Row>(row);
-        console.log(row.fields);
+        console.log(newValues);
         await base(table).update([{ id: row.id, fields: { ...newValues } }]);
         console.log("Updated row", row.fields.Name);
       } catch (error) {
