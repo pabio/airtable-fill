@@ -14,6 +14,7 @@ export const fill = async <T>(row: Airtable.Record<T>) => {
   let data: any = {};
   if (url.includes("pfister.ch")) data = await getDataFromPfister(url);
   else if (url.includes("livique.ch")) data = await getDataFromLivique(url);
+  else if (url.includes("maisonsdumonde")) data = await getDataFromMaisonsDuMonde(url);
   else return fields;
   fields.Name = data.title;
   fields["Full price"] = Math.round(data.fullPrice);
@@ -90,6 +91,48 @@ export const getDataFromLivique = async (url: string) => {
     discountedPrice,
     description: title,
     images: images.filter((i) => i).map((i) => `https:${i}`),
+  };
+};
+
+export const getDataFromMaisonsDuMonde = async (url: string) => {
+  const { data } = await axios.get(url);
+  const $ = load(data);
+  const title = $("h1.product-title").text();
+  const salePrice = parseInt(
+    $(".base-price").text().replace("'", "").replace(",", ".").replace("€", "").trim()
+  );
+  const fullPrice = parseInt(
+    $(".base-price").text().replace("'", "").replace(",", ".").replace("€", "").trim()
+  );
+  const deliveryTime = "";
+  const specifications: { [index: string]: string } = {};
+  $("h3 + div > .list-unstyled li").each((_, elt) => {
+    const key = $(elt).text().split(":")[0].trim();
+    const value = ($(elt).text().split(":")[1] ?? "").trim();
+    specifications[key] = value.replace(/\s+/g, " ").trim();
+  });
+  const images: string[] = [];
+  $(".slider-wrapper img[data-srcset]").each((_, elt) => {
+    const src = $(elt).attr("data-srcset");
+    if (src)
+      images.push(
+        src
+          .split("w,")
+          .map((i) => i.trim())
+          .pop()
+          ?.split(" ")[0] ?? ""
+      );
+  });
+  const discountedPrice = salePrice;
+  return {
+    title,
+    salePrice,
+    fullPrice,
+    deliveryTime,
+    specifications,
+    discountedPrice,
+    description: title,
+    images,
   };
 };
 
