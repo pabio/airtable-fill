@@ -35,5 +35,4 @@ test("Get data from Maisons du Monde", async () => {
   expect(data.description).toBe("Statue fleurs en métal doré H41");
   expect(typeof data.specifications).toBe("object");
   expect(Object.keys(data.specifications).length).toBeGreaterThanOrEqual(1);
-  console.log(data.images);
 });
