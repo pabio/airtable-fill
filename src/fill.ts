@@ -8,8 +8,8 @@ const unique = (array: any[], propertyName: string) =>
   array.filter((e, i) => array.findIndex((a) => a[propertyName] === e[propertyName]) === i);
 
 export const fill = async <T>(row: Airtable.Record<T>) => {
-  const fields = (row.fields as any) as { [index: string]: string | number | any[] };
-  const url = fields.Link;
+  const fields: { [index: string]: string | number | any[] } = {};
+  const url = (row as any).Link;
   if (typeof url !== "string") return fields;
   let data: any = {};
   if (url.includes("pfister.ch")) data = await getDataFromPfister(url);
