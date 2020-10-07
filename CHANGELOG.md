@@ -1,3 +1,9 @@
+# [v1.3.2](https://github.com/koj-co/airtable-fill/compare/v1.3.1...v1.3.2) (2020-10-07)
+
+## 🐛 Bug fixes
+
+- [`eb500ef`](https://github.com/koj-co/airtable-fill/commit/eb500ef)  Don&#x27;t send entire row
+
 # [v1.3.1](https://github.com/koj-co/airtable-fill/compare/v1.3.0...v1.3.1) (2020-10-07)
 
 ## 🐛 Bug fixes
