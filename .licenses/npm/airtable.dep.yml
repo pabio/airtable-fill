@@ -1,6 +1,6 @@
 ---
 name: airtable
-version: 0.10.0
+version: 0.10.1
 type: npm
 summary: The official Airtable JavaScript library.
 homepage: https://github.com/airtable/airtable.js
