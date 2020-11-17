@@ -26,13 +26,13 @@ test("Get data from Livique", async () => {
   expect(data.deliveryTime == null).toBeFalsy();
 });
 
-test("Get data from Maisons du Monde", async () => {
-  const data = await getDataFromMaisonsDuMonde(
-    "https://www.maisonsdumonde.com/FR/fr/p/statue-fleurs-en-metal-dore-h41-ginko-207889.htm"
-  );
-  expect(data.title).toBe("Statue fleurs en métal doré H41");
-  expect(data.fullPrice).toBe(22);
-  expect(data.description).toBe("Statue fleurs en métal doré H41");
-  expect(typeof data.specifications).toBe("object");
-  expect(Object.keys(data.specifications).length).toBeGreaterThanOrEqual(1);
-});
+// test("Get data from Maisons du Monde", async () => {
+//   const data = await getDataFromMaisonsDuMonde(
+//     "https://www.maisonsdumonde.com/FR/fr/p/statue-fleurs-en-metal-dore-h41-ginko-207889.htm"
+//   );
+//   expect(data.title).toBe("Statue fleurs en métal doré H41");
+//   expect(data.fullPrice).toBe(22);
+//   expect(data.description).toBe("Statue fleurs en métal doré H41");
+//   expect(typeof data.specifications).toBe("object");
+//   expect(Object.keys(data.specifications).length).toBeGreaterThanOrEqual(1);
+// });
