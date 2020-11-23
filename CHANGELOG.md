@@ -1,3 +1,38 @@
+## [v1.3.4](https://github.com/koj-co/airtable-fill/compare/v1.3.3...v1.3.4) (2020-11-23)
+
+### ⬆️ Dependency updates
+
+- [`5c26848`](https://github.com/koj-co/airtable-fill/commit/5c26848)  Bump pascalgn/automerge-action from v0.11.0 to v0.12.0
+- [`2c3d567`](https://github.com/koj-co/airtable-fill/commit/2c3d567)  Bump semantic-release from 17.1.2 to 17.2.0
+- [`f2086fb`](https://github.com/koj-co/airtable-fill/commit/f2086fb)  Bump jest from 26.5.2 to 26.5.3
+- [`7a080c9`](https://github.com/koj-co/airtable-fill/commit/7a080c9)  Bump semantic-release from 17.2.0 to 17.2.1
+- [`162f8ff`](https://github.com/koj-co/airtable-fill/commit/162f8ff)  Bump jest from 26.5.3 to 26.6.0
+- [`2f14c5d`](https://github.com/koj-co/airtable-fill/commit/2f14c5d)  Bump vsoch/pull-request-action from 1.0.10 to 1.0.11
+- [`fe36333`](https://github.com/koj-co/airtable-fill/commit/fe36333)  Bump @types/jest from 26.0.14 to 26.0.15
+- [`f7f5310`](https://github.com/koj-co/airtable-fill/commit/f7f5310)  Bump ts-jest from 26.4.1 to 26.4.2
+- [`93ac0a1`](https://github.com/koj-co/airtable-fill/commit/93ac0a1)  Bump axios from 0.20.0 to 0.21.0
+- [`f72d6bd`](https://github.com/koj-co/airtable-fill/commit/f72d6bd)  Bump jest from 26.6.0 to 26.6.1
+- [`c6c2355`](https://github.com/koj-co/airtable-fill/commit/c6c2355)  Bump typescript from 4.0.3 to 4.0.5
+- [`0f70d26`](https://github.com/koj-co/airtable-fill/commit/0f70d26)  Bump ts-jest from 26.4.2 to 26.4.3
+- [`75db55e`](https://github.com/koj-co/airtable-fill/commit/75db55e)  Bump @koj/config from 1.2.5 to 1.2.6
+- [`e0f92fe`](https://github.com/koj-co/airtable-fill/commit/e0f92fe)  Bump semantic-release from 17.2.1 to 17.2.2
+- [`7e1c217`](https://github.com/koj-co/airtable-fill/commit/7e1c217)  Bump @koj/config from 1.2.6 to 1.2.7
+- [`a04251a`](https://github.com/koj-co/airtable-fill/commit/a04251a)  Bump jest from 26.6.1 to 26.6.2
+- [`80d734a`](https://github.com/koj-co/airtable-fill/commit/80d734a)  Bump actions/checkout from v2.3.3 to v2.3.4
+- [`ae1366a`](https://github.com/koj-co/airtable-fill/commit/ae1366a)  Bump jest from 26.6.2 to 26.6.3
+- [`238aca7`](https://github.com/koj-co/airtable-fill/commit/238aca7)  Bump @koj/config from 1.2.7 to 1.2.8
+- [`a454007`](https://github.com/koj-co/airtable-fill/commit/a454007)  Bump airtable from 0.10.0 to 0.10.1
+- [`bc08c10`](https://github.com/koj-co/airtable-fill/commit/bc08c10)  Bump ts-jest from 26.4.3 to 26.4.4
+- [`2927d3c`](https://github.com/koj-co/airtable-fill/commit/2927d3c)  Bump @semantic-release/github from 7.1.1 to 7.1.2
+- [`13a2aa7`](https://github.com/koj-co/airtable-fill/commit/13a2aa7)  Update dependencies
+- [`59f5865`](https://github.com/koj-co/airtable-fill/commit/59f5865)  Update koj-co/template
+- [`fe43942`](https://github.com/koj-co/airtable-fill/commit/fe43942)  Bump vsoch/pull-request-action from 1.0.11 to 1.0.12
+- [`ef927d1`](https://github.com/koj-co/airtable-fill/commit/ef927d1)  Bump @koj/config from 1.2.8 to 1.2.9
+- [`901d7b1`](https://github.com/koj-co/airtable-fill/commit/901d7b1)  Bump update-template from 1.3.0 to 1.3.1
+- [`87b4d53`](https://github.com/koj-co/airtable-fill/commit/87b4d53)  Bump @semantic-release/github from 7.1.2 to 7.2.0
+- [`307114b`](https://github.com/koj-co/airtable-fill/commit/307114b)  Bump semantic-release from 17.2.3 to 17.2.4
+- [`afbc6bb`](https://github.com/koj-co/airtable-fill/commit/afbc6bb)  Bump typescript from 4.0.5 to 4.1.2
+
 ## [v1.3.3](https://github.com/koj-co/airtable-fill/compare/v1.3.2...v1.3.3) (2020-10-07)
 
 ### 🐛 Bug fixes
