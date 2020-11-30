@@ -1,3 +1,9 @@
+## [v1.3.5](https://github.com/koj-co/airtable-fill/compare/v1.3.4...v1.3.5) (2020-11-30)
+
+### ⬆️ Dependency updates
+
+- [`e6974a9`](https://github.com/koj-co/airtable-fill/commit/e6974a9)  Bump semantic-release from 17.2.4 to 17.3.0
+
 ## [v1.3.4](https://github.com/koj-co/airtable-fill/compare/v1.3.3...v1.3.4) (2020-11-23)
 
 ### ⬆️ Dependency updates
