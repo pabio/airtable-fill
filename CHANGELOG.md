@@ -1,3 +1,13 @@
+## v1.3.6 (2020-12-07)
+
+[📝 Release notes](https://github.com/koj-co/airtable-fill/releases/tag/v1.3.6) · [💻 Compare](https://github.com/koj-co/airtable-fill/compare/v1.3.5...v1.3.6) · [🔖 Tag](https://github.com/koj-co/airtable-fill/tree/v1.3.6) · 🗄️ Archive ([zip](https://github.com/koj-co/airtable-fill/archive/v1.3.6.zip) · [tar.gz](https://github.com/koj-co/airtable-fill/archive/v1.3.6.tar.gz))
+
+### ⬆️ Dependency updates
+
+- [`2410c6f`](https://github.com/koj-co/airtable-fill/commit/2410c6f)  Bump @koj/config from 1.2.9 to 1.2.11
+- [`edaf666`](https://github.com/koj-co/airtable-fill/commit/edaf666)  Bump ts-node from 9.0.0 to 9.1.0
+- [`dea5ded`](https://github.com/koj-co/airtable-fill/commit/dea5ded)  Bump @semantic-release/npm from 7.0.8 to 7.0.9
+
 ## [v1.3.5](https://github.com/koj-co/airtable-fill/compare/v1.3.4...v1.3.5) (2020-11-30)
 
 ### ⬆️ Dependency updates
