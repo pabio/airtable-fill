@@ -1,3 +1,16 @@
+## v1.3.7 (2020-12-14)
+
+[📝 Release notes](https://github.com/koj-co/airtable-fill/releases/tag/v1.3.7) · [💻 Compare](https://github.com/koj-co/airtable-fill/compare/v1.3.6...v1.3.7) · [🔖 Tag](https://github.com/koj-co/airtable-fill/tree/v1.3.7) · 🗄️ Archive ([zip](https://github.com/koj-co/airtable-fill/archive/v1.3.7.zip) · [tar.gz](https://github.com/koj-co/airtable-fill/archive/v1.3.7.tar.gz))
+
+### ⬆️ Dependency updates
+
+- [`912e447`](https://github.com/koj-co/airtable-fill/commit/912e447)  Bump @types/cheerio from 0.22.22 to 0.22.23
+- [`4873a82`](https://github.com/koj-co/airtable-fill/commit/4873a82)  Bump @types/jest from 26.0.15 to 26.0.17
+- [`4881396`](https://github.com/koj-co/airtable-fill/commit/4881396)  Bump @types/jest from 26.0.17 to 26.0.18
+- [`91f22e4`](https://github.com/koj-co/airtable-fill/commit/91f22e4)  Bump actions/setup-node from v2.1.2 to v2.1.3
+- [`bc8d231`](https://github.com/koj-co/airtable-fill/commit/bc8d231)  Bump @types/jest from 26.0.18 to 26.0.19
+- [`1741b53`](https://github.com/koj-co/airtable-fill/commit/1741b53)  Bump ini from 1.3.5 to 1.3.7
+
 ## v1.3.6 (2020-12-07)
 
 [📝 Release notes](https://github.com/koj-co/airtable-fill/releases/tag/v1.3.6) · [💻 Compare](https://github.com/koj-co/airtable-fill/compare/v1.3.5...v1.3.6) · [🔖 Tag](https://github.com/koj-co/airtable-fill/tree/v1.3.6) · 🗄️ Archive ([zip](https://github.com/koj-co/airtable-fill/archive/v1.3.6.zip) · [tar.gz](https://github.com/koj-co/airtable-fill/archive/v1.3.6.tar.gz))
