@@ -36,8 +36,10 @@ export const airtableFill = async () => {
   const tables = config<string>("airtableTable");
   for await (const table of tables.split(",").map((i) => i.trim())) {
     console.log("Starting update for table", table);
-    const rows = await getEmptyAirtableRows<Row>(table);
-    console.log("Got empty rows", rows.length);
+    // const rows = await getEmptyAirtableRows<Row>(table);
+    // console.log("Got empty rows", rows.length);
+    const rows = await getAllAirtableRows<Row>(table);
+    console.log("Got all rows", rows.length);
     for await (const row of rows) {
       try {
         const newValues = await fill<Row>(row);
