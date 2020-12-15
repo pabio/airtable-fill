@@ -1,3 +1,15 @@
+## v1.3.8 (2020-12-15)
+
+[📝 Release notes](https://github.com/koj-co/airtable-fill/releases/tag/v1.3.8) · [💻 Compare](https://github.com/koj-co/airtable-fill/compare/v1.3.7...v1.3.8) · [🔖 Tag](https://github.com/koj-co/airtable-fill/tree/v1.3.8) · 🗄️ Archive ([zip](https://github.com/koj-co/airtable-fill/archive/v1.3.8.zip) · [tar.gz](https://github.com/koj-co/airtable-fill/archive/v1.3.8.tar.gz))
+
+### ♻️ Updates
+
+- [`cb8eed8`](https://github.com/koj-co/airtable-fill/commit/cb8eed8)  Run on all rows
+
+### ⬆️ Dependency updates
+
+- [`898f27b`](https://github.com/koj-co/airtable-fill/commit/898f27b)  Bump typescript from 4.1.2 to 4.1.3
+
 ## v1.3.7 (2020-12-14)
 
 [📝 Release notes](https://github.com/koj-co/airtable-fill/releases/tag/v1.3.7) · [💻 Compare](https://github.com/koj-co/airtable-fill/compare/v1.3.6...v1.3.7) · [🔖 Tag](https://github.com/koj-co/airtable-fill/tree/v1.3.7) · 🗄️ Archive ([zip](https://github.com/koj-co/airtable-fill/archive/v1.3.7.zip) · [tar.gz](https://github.com/koj-co/airtable-fill/archive/v1.3.7.tar.gz))
