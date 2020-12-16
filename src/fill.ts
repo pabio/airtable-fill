@@ -164,6 +164,58 @@ export const getDataFromPfister = async (url: string) => {
     const value = $(elt).find("td").text();
     specifications[key] = value;
   });
+  const noDiscountBrands = [
+    "Mobitare",
+    "Intertime",
+    "Brühl",
+    "Stressless",
+    "Leolux",
+    "Swiss Plus",
+    "Kartell",
+    "Seetal",
+    "Willisau",
+    "Team 7",
+    "Bico",
+    "Carpe Diem",
+    "Superba",
+    "Jensen",
+    "Riposa",
+    "Riposa Gold",
+    "Gloster",
+    "Glatz",
+    "Gastro",
+    "Pendalex",
+    "Moll",
+    "Jan Kath",
+    "Bonaldo",
+    "Freistil",
+    "Sitzplatz",
+    "Strässle",
+    "Glatz",
+    "Girsberger",
+    "MAB Betschart",
+    "Hülsta",
+    "Ronald Schmitt",
+    "Schaffner",
+    "Artanova",
+    "Naos",
+    "Jori",
+    "Spectral",
+    "Himolla",
+    "Natuzzi",
+    "KFF",
+    "BOSSE",
+    "GIROFLEX ",
+    "RUF",
+    "Sjöholm",
+    "TRINATURA",
+  ];
+  const brand = specifications.Marken;
+  let hasDiscount = true;
+  noDiscountBrands.forEach((name) => {
+    if (brand.includes(name)) hasDiscount = false;
+  });
+  const discountedPrice = hasDiscount ? salePrice * 0.85 : salePrice;
   let deliveryTime = $("header + div[type=button]")
     .text()
     .replace("Lieferzeit: ", "")
@@ -186,6 +238,7 @@ export const getDataFromPfister = async (url: string) => {
     title,
     fullPrice,
     salePrice,
+    discountedPrice,
     description,
     specifications,
     deliveryTime,
