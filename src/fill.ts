@@ -213,7 +213,7 @@ export const getDataFromPfister = async (url: string) => {
   const brand = specifications.Marken;
   let hasDiscount = true;
   noDiscountBrands.forEach((name) => {
-    if (brand.includes(name)) hasDiscount = false;
+    if ((brand || "").toLowerCase().includes((name || "").toLowerCase())) hasDiscount = false;
   });
   const discountedPrice = hasDiscount ? salePrice * 0.85 : salePrice;
   let deliveryTime = $("header + div[type=button]")
