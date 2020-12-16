@@ -1,3 +1,12 @@
+## v1.3.9 (2020-12-16)
+
+[📝 Release notes](https://github.com/koj-co/airtable-fill/releases/tag/v1.3.9) · [💻 Compare](https://github.com/koj-co/airtable-fill/compare/v1.3.8...v1.3.9) · [🔖 Tag](https://github.com/koj-co/airtable-fill/tree/v1.3.9) · 🗄️ Archive ([zip](https://github.com/koj-co/airtable-fill/archive/v1.3.9.zip) · [tar.gz](https://github.com/koj-co/airtable-fill/archive/v1.3.9.tar.gz))
+
+### ♻️ Updates
+
+- [`3d239ec`](https://github.com/koj-co/airtable-fill/commit/3d239ec)  Add brand
+- [`0d43f7f`](https://github.com/koj-co/airtable-fill/commit/0d43f7f)  Add brand-based discount
+
 ## v1.3.8 (2020-12-15)
 
 [📝 Release notes](https://github.com/koj-co/airtable-fill/releases/tag/v1.3.8) · [💻 Compare](https://github.com/koj-co/airtable-fill/compare/v1.3.7...v1.3.8) · [🔖 Tag](https://github.com/koj-co/airtable-fill/tree/v1.3.8) · 🗄️ Archive ([zip](https://github.com/koj-co/airtable-fill/archive/v1.3.8.zip) · [tar.gz](https://github.com/koj-co/airtable-fill/archive/v1.3.8.tar.gz))
