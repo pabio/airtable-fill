@@ -1,3 +1,11 @@
+## v1.3.10 (2020-12-16)
+
+[📝 Release notes](https://github.com/koj-co/airtable-fill/releases/tag/v1.3.10) · [💻 Compare](https://github.com/koj-co/airtable-fill/compare/v1.3.9...v1.3.10) · [🔖 Tag](https://github.com/koj-co/airtable-fill/tree/v1.3.10) · 🗄️ Archive ([zip](https://github.com/koj-co/airtable-fill/archive/v1.3.10.zip) · [tar.gz](https://github.com/koj-co/airtable-fill/archive/v1.3.10.tar.gz))
+
+### ♻️ Updates
+
+- [`ddfbff4`](https://github.com/koj-co/airtable-fill/commit/ddfbff4)  Compare lowercase brand names
+
 ## v1.3.9 (2020-12-16)
 
 [📝 Release notes](https://github.com/koj-co/airtable-fill/releases/tag/v1.3.9) · [💻 Compare](https://github.com/koj-co/airtable-fill/compare/v1.3.8...v1.3.9) · [🔖 Tag](https://github.com/koj-co/airtable-fill/tree/v1.3.9) · 🗄️ Archive ([zip](https://github.com/koj-co/airtable-fill/archive/v1.3.9.zip) · [tar.gz](https://github.com/koj-co/airtable-fill/archive/v1.3.9.tar.gz))
