@@ -1,3 +1,15 @@
+## v1.3.12 (2020-12-21)
+
+[📝 Release notes](https://github.com/koj-co/airtable-fill/releases/tag/v1.3.12) · [💻 Compare](https://github.com/koj-co/airtable-fill/compare/v1.3.11...v1.3.12) · [🔖 Tag](https://github.com/koj-co/airtable-fill/tree/v1.3.12) · 🗄️ Archive ([zip](https://github.com/koj-co/airtable-fill/archive/v1.3.12.zip) · [tar.gz](https://github.com/koj-co/airtable-fill/archive/v1.3.12.tar.gz))
+
+### 🐛 Bug fixes
+
+- [`cd2937b`](https://github.com/koj-co/airtable-fill/commit/cd2937b)  Keep full price if no discount
+
+### ⬆️ Dependency updates
+
+- [`8ba55bb`](https://github.com/koj-co/airtable-fill/commit/8ba55bb)  Bump vsoch/pull-request-action from 1.0.12 to 1.0.13
+
 ## v1.3.11 (2020-12-21)
 
 [📝 Release notes](https://github.com/koj-co/airtable-fill/releases/tag/v1.3.11) · [💻 Compare](https://github.com/koj-co/airtable-fill/compare/v1.3.10...v1.3.11) · [🔖 Tag](https://github.com/koj-co/airtable-fill/tree/v1.3.11) · 🗄️ Archive ([zip](https://github.com/koj-co/airtable-fill/archive/v1.3.11.zip) · [tar.gz](https://github.com/koj-co/airtable-fill/archive/v1.3.11.tar.gz))
