@@ -1,3 +1,11 @@
+## v1.3.11 (2020-12-21)
+
+[📝 Release notes](https://github.com/koj-co/airtable-fill/releases/tag/v1.3.11) · [💻 Compare](https://github.com/koj-co/airtable-fill/compare/v1.3.10...v1.3.11) · [🔖 Tag](https://github.com/koj-co/airtable-fill/tree/v1.3.11) · 🗄️ Archive ([zip](https://github.com/koj-co/airtable-fill/archive/v1.3.11.zip) · [tar.gz](https://github.com/koj-co/airtable-fill/archive/v1.3.11.tar.gz))
+
+### ⬆️ Dependency updates
+
+- [`1adde21`](https://github.com/koj-co/airtable-fill/commit/1adde21)  Bump actions/setup-node from v2.1.3 to v2.1.4
+
 ## v1.3.10 (2020-12-16)
 
 [📝 Release notes](https://github.com/koj-co/airtable-fill/releases/tag/v1.3.10) · [💻 Compare](https://github.com/koj-co/airtable-fill/compare/v1.3.9...v1.3.10) · [🔖 Tag](https://github.com/koj-co/airtable-fill/tree/v1.3.10) · 🗄️ Archive ([zip](https://github.com/koj-co/airtable-fill/archive/v1.3.10.zip) · [tar.gz](https://github.com/koj-co/airtable-fill/archive/v1.3.10.tar.gz))
