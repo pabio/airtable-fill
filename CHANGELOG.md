@@ -1,3 +1,13 @@
+## v1.3.13 (2020-12-28)
+
+[📝 Release notes](https://github.com/koj-co/airtable-fill/releases/tag/v1.3.13) · [💻 Compare](https://github.com/koj-co/airtable-fill/compare/v1.3.12...v1.3.13) · [🔖 Tag](https://github.com/koj-co/airtable-fill/tree/v1.3.13) · 🗄️ Archive ([zip](https://github.com/koj-co/airtable-fill/archive/v1.3.13.zip) · [tar.gz](https://github.com/koj-co/airtable-fill/archive/v1.3.13.tar.gz))
+
+### ⬆️ Dependency updates
+
+- [`e1b0288`](https://github.com/koj-co/airtable-fill/commit/e1b0288)  Bump node-notifier from 8.0.0 to 8.0.1
+- [`96f12ea`](https://github.com/koj-co/airtable-fill/commit/96f12ea)  Bump pascalgn/automerge-action from v0.12.0 to v0.13.0
+- [`aa8982c`](https://github.com/koj-co/airtable-fill/commit/aa8982c)  Bump axios from 0.21.0 to 0.21.1
+
 ## v1.3.12 (2020-12-21)
 
 [📝 Release notes](https://github.com/koj-co/airtable-fill/releases/tag/v1.3.12) · [💻 Compare](https://github.com/koj-co/airtable-fill/compare/v1.3.11...v1.3.12) · [🔖 Tag](https://github.com/koj-co/airtable-fill/tree/v1.3.12) · 🗄️ Archive ([zip](https://github.com/koj-co/airtable-fill/archive/v1.3.12.zip) · [tar.gz](https://github.com/koj-co/airtable-fill/archive/v1.3.12.tar.gz))
