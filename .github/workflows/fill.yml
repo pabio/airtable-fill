@@ -1,7 +1,5 @@
 name: Airtable Fill CI
 on:
-  schedule:
-    - cron: "0 0/6 * * *"
   repository_dispatch:
     types: [fill]
   workflow_dispatch:
